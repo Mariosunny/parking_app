@@ -1,0 +1,4 @@
+PUBLIC IP: 54.244.77.137
+DEFAULT USER: ubuntu@54.244.77.137
+
+In order to login to server, you need the server key. 

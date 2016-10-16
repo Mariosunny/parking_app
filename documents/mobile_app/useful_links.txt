@@ -1,0 +1,2 @@
+LAUNCH CHECKLIST FOR ANDROID APPLICATIONS
+https://developer.android.com/distribute/tools/launch-checklist.html
