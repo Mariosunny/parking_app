@@ -1,0 +1,4 @@
+PROTOTYPE REQUIREMENTS:
+- 500mB memory
+- 100mB space
+- Must be able to determine if a passing object is a valid vehicle within 5 seconds
