@@ -1,0 +1,8 @@
+$ fab deploy
+Deploy the project as normal (live). This will copy your local project to the server, keeping the data on the server intact and applying all database migrations.
+
+$ fab deploy:wipe
+Deploy the project, beginning with a brand new database.
+
+$ fab deploy:replace
+Deploy the project, replacing the existing database with the one that is uploaded.
