@@ -1,33 +1,37 @@
 html{
 	font-family:Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+body{
+	text-align:center;
 }
 .header{
 	width:100%;
-	text-align:center;
 	background-image:url("../images/off_logo.png");
 	background-position-x:center;
 	background-repeat:no-repeat;
 	background-size:contain;
-	min-height:10em;
+	min-height:9em;
 }
 .main_body{
 	position:relative;
-	text-align:center;
 }
 .footer{
-	text-align:center;
 	width:100%;
 	position:static;
 	bottom:5px;
+	color:#000;
 }
 .button{
 	margin:10px;
+}
+.instructions{
+	color:#000;
 }
  #map {
     height: 400px;
     width: 60%;
 	margin-left:20%;
-	color:#fff;
 	text-shadow:1px 1px 2px #000;
 	border-style:solid;
 	border-color:#000;
