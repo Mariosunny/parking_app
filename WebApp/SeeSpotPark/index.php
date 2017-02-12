@@ -38,6 +38,8 @@ if($num2==1){
 <body>
 <header class="header" >
 </header>
+<div style="color:black;" >Just say: "<strong>Show me a spot</strong>", and we'll fetch the spot closest to you!</br>
+Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
 <div class="main_body" >
 	<div id="map"></div>
 </div>
@@ -81,7 +83,7 @@ function showPosition(position) {
  <script>
       function initMap() {
         var Parking_Lot_F = {lat: 27.526794, lng: -97.878555};
-		var Parking_Lot_7 = {lat: 27.525100, lng: -97.878262};
+		var Parking_Lot_7 = {lat: 27.525213, lng: -97.878262};
 		var label = '<?php print $alert; ?>';
 		var label2 = '<?php print $alert2; ?>';
         var map = new google.maps.Map(document.getElementById('map'), {
