@@ -32,7 +32,7 @@ if($num2==1){
 <meta name="description" content="Welcome to See Spot Park - TAMUK's campus parking tracking system." />
 <link rel="stylesheet" type="text/css" media="all" href="css/style.css?ts=<?=time()?>" />
 <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src='js/responsivevoice.js'></script>
 <title>See. Spot. Park.</title>
 </head>
 <body>
@@ -41,7 +41,7 @@ if($num2==1){
 <div class="main_body" >
 	<div id="map"></div>
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script src="js/annyang_speech.js"></script>
 <script>
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
@@ -64,10 +64,24 @@ if (annyang) {
   annyang.start({ autoRestart: true, continuous: true });
 }
 </script>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+</script>
  <script>
       function initMap() {
         var Parking_Lot_F = {lat: 27.526794, lng: -97.878555};
-		var Parking_Lot_7 = {lat: 27.525182, lng: -97.878262};
+		var Parking_Lot_7 = {lat: 27.525100, lng: -97.878262};
 		var label = '<?php print $alert; ?>';
 		var label2 = '<?php print $alert2; ?>';
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -112,6 +126,7 @@ if (annyang) {
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6zNJLvNxe39Wy3Kcd8wX2mJD31aPOJdQ&callback=initMap">
     </script>
 	<div class="instructions" ></br>You can also say "Refresh" to refresh the page.</div>
+	<div style="color:black;" id="demo"></div>
 </body>
 <hr>
 <footer class="footer" >
