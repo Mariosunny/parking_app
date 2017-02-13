@@ -43,44 +43,24 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
 <div class="main_body" >
 	<div id="map"></div>
 </div>
-<script src="js/annyang_speech.js"></script>
-<script>
-if (annyang) {
-  // Let's define our first command. First the text we expect, and then the function it should call
-  var commands = {
-    'Show me (a) spot(s)': function() {
-     responsiveVoice.speak("<?php print $script; ?>","US English Female");
-    },
-	'refresh (page)':function(){
-		window.location.href = "https://www.thomaswurdinger.com/seespotpark";
-	},
-	'thank you': function() {
-     responsiveVoice.speak("You're welcome!","US English Female");
-    }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening. You can call this here, or attach this call to an event, button, etc.
-  annyang.start({ autoRestart: true, continuous: true });
-}
-</script>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-}
-</script>
+<div style="color:black;visibility:hidden;" id="demo">hello</div>
  <script>
+	  var x = document.getElementById('demo');
+	var ret = getLocation();
+	var y=new Array();
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+	function showPosition(position) {
+		x.innerHTML = "{lat: " + position.coords.latitude + 
+		", lng: " + position.coords.longitude + "}"; 
+		y[0]=position.coords.latitude; 
+		y[1]=position.coords.longitude; 
+	}
       function initMap() {
         var Parking_Lot_F = {lat: 27.526794, lng: -97.878555};
 		var Parking_Lot_7 = {lat: 27.525213, lng: -97.878262};
@@ -94,14 +74,20 @@ function showPosition(position) {
 		var icon = "<?php echo $bgColor; ?>";
         var marker = new google.maps.Marker({
           position: Parking_Lot_F,
-          label: label,
+          label:  {
+			  text: label,
+			  color: 'white'
+			  },
 		  icon: icon,
 		  map: map
         });
 		var icon2 = "<?php echo $bgColor2; ?>";
 		var marker2 = new google.maps.Marker({
           position: Parking_Lot_7,
-          label: label2,
+          label: {
+			  text: label2,
+			  color: 'white'
+			  },
 		  icon: icon2,
 		  map: map
         });
@@ -122,13 +108,47 @@ function showPosition(position) {
 		  map.setCenter(center);
 		});
       }
-	  
-    </script>
+ </script>
 	 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6zNJLvNxe39Wy3Kcd8wX2mJD31aPOJdQ&callback=initMap">
     </script>
 	<div class="instructions" ></br>You can also say "Refresh" to refresh the page.</div>
-	<div style="color:black;" id="demo"></div>
+	<script src="js/annyang_speech.js"></script>
+<script>
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'Show me (a) spot(s)': function() {
+		var lot_f_lat = 27.526794 - parseFloat(y[0]);
+		var lot_f_long = -97.878555 - parseFloat(y[1]);
+		var dist = Math.sqrt((lot_f_lat * lot_f_lat)+(lot_f_long * lot_f_long));
+		if(dist<0){dist=dist*-1;}
+		var lot_7_lat = 27.525213 - parseFloat(y[0]);
+		var lot_7_long = -97.878262 - parseFloat(y[1]);
+		var dist2 = Math.sqrt((lot_7_lat * lot_7_lat)+(lot_7_long * lot_7_long));
+		if(dist2<0){dist2=dist2*-1;}
+		if(dist > dist2){
+			responsiveVoice.speak("<?php print $script2; ?>","US English Female");
+			
+		}else{
+			responsiveVoice.speak("<?php print $script; ?>","US English Female");
+		}
+    },
+	'refresh (page)':function(){
+		window.location.href = "https://www.thomaswurdinger.com/seespotpark";
+	},
+	'thank you': function() {
+     responsiveVoice.speak("You got it, dooooood!","US English Female");
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start({ autoRestart: true, continuous: true });
+}
+</script>
 </body>
 <hr>
 <footer class="footer" >
