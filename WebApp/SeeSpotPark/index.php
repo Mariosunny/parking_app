@@ -45,7 +45,7 @@ if($num2==1){
 <header class="header" >
 </header>
 <!-- below is the text seen on screen -->
-<div style="color:black;" >Just say: "<strong>Show me a spot</strong>", and we'll fetch the spot closest to you!</br>
+<div style="color:black;" >Press the green button and say: "<strong>Find me a spot</strong>", and we'll fetch the spot closest to you!</br>
 Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
 <!-- below is the html <div> for the google map. -->
 <div class="main_body" >
@@ -53,6 +53,14 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
 </div>
 <!-- below is a <div> for printing out the users lat. and long.  It is hidden for now. -->
 <div style="color:black;visibility:collapse;" id="demo">hello</div>
+<input type="button" name="button" class="button_click" value="press to find a spot" onclick="button_click()" />
+<script>
+	function button_click(){
+		var audio = new Audio('beep.m4A');
+		audio.play();
+		annyang.start({ autoRestart: false });
+	}
+</script>
 <!-- below is the javascript that actually prints the map -->
  <script>
 // first get the "demo" <div> element and place it into the "x" variable
@@ -158,7 +166,7 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
 if (annyang) {
   // define the first command. First the text we expect, and then the function it should call
   var commands = {
-    'Show me (a) spot(s)': function() {
+    'Find me (a) spot(s)': function() {
 		/* this math is incorrect */
 		var lot_f_lat = 27.526794 - parseFloat(y[0]);
 		var lot_f_long = -97.878555 - parseFloat(y[1]);
@@ -176,14 +184,17 @@ if (annyang) {
 		}else{
 			responsiveVoice.speak("<?php print $script; ?>","US English Female");
 		}
+		annyang.pause();
     },
 	// this command allows for hands-free updating of information
 	'refresh (page)':function(){
 		window.location.href = "https://www.thomaswurdinger.com/seespotpark";
+		annyang.pause();
 	},
 	// this is because I can
 	'thank you': function() {
      responsiveVoice.speak("You got it, dooooood!","US English Female");
+	 annyang.pause();
     }
   };
 
@@ -192,7 +203,8 @@ if (annyang) {
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   // It should probably be attached to a HUGE button
-  annyang.start({ autoRestart: true, continuous: true });
+  //annyang.start({ autoRestart: true, continuous: true });
+  
 }
 </script>
 </body>
