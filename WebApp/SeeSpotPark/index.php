@@ -45,7 +45,7 @@ if($num2==1){
 <header class="header" >
 </header>
 <!-- below is the text seen on screen -->
-<div style="color:black;" >Press the green button and say: "<strong>Find me a spot</strong>", and we'll fetch the spot closest to you!</br>
+<div style="color:black;" >Press the Green button and say: "<strong>Find me a spot</strong>", and we'll fetch the spot closest to you!</br>
 Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
 <!-- below is the html <div> for the google map. -->
 <div class="main_body" >
