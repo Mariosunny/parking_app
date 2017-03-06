@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from . import models
 
@@ -19,7 +20,7 @@ def get(request):
 
 	return JsonResponse(parking_lot_data)
 
-
+@csrf_exempt
 def post(request):
 
 	pass

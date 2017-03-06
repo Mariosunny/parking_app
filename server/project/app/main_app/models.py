@@ -1,5 +1,20 @@
 from django.db import models
 
+def increment():
+
+	get_parking_lot().number_of_filled_spots += 1
+
+def decrement():
+
+	parking_lot = get_parking_lot()
+
+	get_parking_lot().number_of_filled_spots -= 1
+
+
+def get_parking_lot():
+
+	return EnclosedParkingLot.objects.all()[0]
+
 
 class ParkingGroup(models.Model):
 
