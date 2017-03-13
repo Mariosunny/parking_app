@@ -39,28 +39,39 @@ if($num2==1){
 <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
 <script src='js/responsivevoice.js'></script><!-- this is for the voice output -->
 <title>See. Spot. Park.</title>
+<style type="text/css">
+.auto-style1 {
+	margin-left: 0px;
+}
+</style>
 </head>
 <body>
 <!-- below is the see spot park logo -->
-<header class="header" >
+<header class="header" style="height: 147px" >
 </header>
 <!-- below is the text seen on screen -->
+
 <div style="color:black;" >Press the Green button and say: "<strong>Find me a spot</strong>", and we'll fetch the spot closest to you!</br>
 Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
+
 <!-- below is the html <div> for the google map. -->
 <div class="main_body" >
 	<div id="map"></div>
 </div>
 <!-- below is a <div> for printing out the users lat. and long.  It is hidden for now. -->
-<div style="color:black;visibility:collapse;" id="demo">hello</div>
-<input type="button" name="button" class="button_click" value="press to find a spot" onclick="button_click()" />
+<div style="color:black;visibility:collapse;" id="demo">location</div>
+<div>
+<br>
+<input name="button" type="button" value="Press here to find a spot" onclick="button_click()" class="auto-style1" style="width: 1279px; background-color: #00FF00; color: #000000; height: 50px; font-size: medium;" />
 <script>
 	function button_click(){
-		var audio = new Audio('beep.m4A');
+		var audio = new Audio('button_click_off.mp3');
 		audio.play();
 		annyang.start({ autoRestart: false });
 	}
 </script>
+	<br><br>
+</div>
 <!-- below is the javascript that actually prints the map -->
  <script>
 // first get the "demo" <div> element and place it into the "x" variable
@@ -114,7 +125,7 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
 			  text: label,
 			  color: 'white'
 			  },
-		  icon: icon,
+		  icon: "pinkball.png",
 		  // the attribute below places this marker on our map
 		  map: map
         });
@@ -159,7 +170,7 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6zNJLvNxe39Wy3Kcd8wX2mJD31aPOJdQ&callback=initMap">
     </script>
 <!-- this is just more text for the page (under the map)  -->
-	<div class="instructions" ></br>You can also say "Refresh" to refresh the page.</div>
+	<div class="instructions" ><br><br><br><br><br></div>
 	<script src="js/annyang_speech.js"></script> <!-- this code calls the speech recognition javascript library "annyang_speech.js" -->
 <!-- below is the script that runs if annyang has been succesfully loaded -->
 	<script>
@@ -214,4 +225,5 @@ if (annyang) {
 		&copy; See Spot Park | 2017
 </footer>
 </html>
+
 <!-- EOF -->
