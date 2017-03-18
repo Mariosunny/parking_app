@@ -49,14 +49,14 @@ if($num2==1){
 Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
 <!-- below is the html <div> for the google map. -->
 <div class="main_body" >
+<input type="button" name="button" class="button_click" value="press to find a spot" onclick="button_click()" /></br></br>
 	<div id="map"></div>
 </div>
 <!-- below is a <div> for printing out the users lat. and long.  It is hidden for now. -->
 <div style="color:black;visibility:collapse;" id="demo">hello</div>
-<input type="button" name="button" class="button_click" value="press to find a spot" onclick="button_click()" />
 <script>
 	function button_click(){
-		var audio = new Audio('beep.m4A');
+		var audio = new Audio('Electronic_Chime-KevanGC-495939803.mp3');
 		audio.play();
 		annyang.start({ autoRestart: false });
 	}
@@ -158,8 +158,7 @@ Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img sr
 	 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6zNJLvNxe39Wy3Kcd8wX2mJD31aPOJdQ&callback=initMap">
     </script>
-<!-- this is just more text for the page (under the map)  -->
-	<div class="instructions" ></br>You can also say "Refresh" to refresh the page.</div>
+
 	<script src="js/annyang_speech.js"></script> <!-- this code calls the speech recognition javascript library "annyang_speech.js" -->
 <!-- below is the script that runs if annyang has been succesfully loaded -->
 	<script>
@@ -167,33 +166,35 @@ if (annyang) {
   // define the first command. First the text we expect, and then the function it should call
   var commands = {
     'Find me (a) spot(s)': function() {
-		/* this math is incorrect */
+		
 		var lot_f_lat = 27.526794 - parseFloat(y[0]);
 		var lot_f_long = -97.878555 - parseFloat(y[1]);
 		var dist = Math.sqrt((lot_f_lat * lot_f_lat)+(lot_f_long * lot_f_long));
-		if(dist<0){dist=dist*-1;}
 		var lot_7_lat = 27.525213 - parseFloat(y[0]);
 		var lot_7_long = -97.878262 - parseFloat(y[1]);
 		var dist2 = Math.sqrt((lot_7_lat * lot_7_lat)+(lot_7_long * lot_7_long));
-		if(dist2<0){dist2=dist2*-1;}
-		/* this math is incorrect */
+		var audio = new Audio('woof.mp3');
 		// The code below is SUPPOSED to relay the nearest lot of the two via audio output
 		if(dist > dist2){
-			responsiveVoice.speak("<?php print $script2; ?>","US English Female");
+			
+		audio.play();
+			setTimeout(function(){ responsiveVoice.speak("<?php print $script2; ?>","US English Female"); }, 1000);
 			
 		}else{
-			responsiveVoice.speak("<?php print $script; ?>","US English Female");
+		audio.play();
+			setTimeout(function(){ responsiveVoice.speak("<?php print $script; ?>","US English Female"); }, 1000);
+			
 		}
 		annyang.pause();
     },
 	// this command allows for hands-free updating of information
-	'refresh (page)':function(){
-		window.location.href = "https://www.thomaswurdinger.com/seespotpark";
-		annyang.pause();
-	},
 	// this is because I can
 	'thank you': function() {
-     responsiveVoice.speak("You got it, dooooood!","US English Female");
+     responsiveVoice.speak("you got it dooooooddd!","US English Female");
+	 annyang.pause();
+    },
+	'(will) (you) marry me': function() {
+     responsiveVoice.speak("you too gott dang ugly!","US English Female");
 	 annyang.pause();
     }
   };

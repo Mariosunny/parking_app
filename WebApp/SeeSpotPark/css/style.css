@@ -23,14 +23,13 @@ body{
 	color:#000;
 }
 .button_click{
-	background-color:#00d400;
-	color: #fff;
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	text-shadow:2px 2px 4px #000;
-	height: 50px;
-	width: 75px:
+	background-color: #00d400;
+    color: #fff;
+    bottom: 0px;
+    left: 0px;
+    text-shadow: 2px 2px 4px #000;
+    height: 236px;
+    width: 302px;
 	
 }
 .button{
