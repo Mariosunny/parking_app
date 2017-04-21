@@ -224,25 +224,40 @@ var y;
 				if(rat2 == 100){
 					audio.play();
 					setTimeout(function(){ responsiveVoice.speak("There is no open parking","US English Female"); }, 1000);
+					setTimeout(function(){
+					   window.location.reload(1);
+					}, 10000);
 				}else{
 					audio.play();
 					setTimeout(function(){ responsiveVoice.speak("<?php print $script3; ?>","US English Female"); }, 1000);
-					map.setCenter(Parking_Lot_d);					
+					map.setCenter(Parking_Lot_d);	
+					setTimeout(function(){
+					   window.location.reload(1);
+					}, 10000);					
 				}
 			}else{ 
 				if(rat2 == 100){
 					audio.play();
 					setTimeout(function(){ responsiveVoice.speak("<?php print $script2; ?>","US English Female"); }, 1000);
 					map.setCenter(Parking_Lot_7);
+					setTimeout(function(){
+					   window.location.reload(1);
+					}, 10000);
 				}else{
 					if(dist2 < dist3){
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script2; ?>","US English Female"); }, 1000);	
 						map.setCenter(Parking_Lot_7);
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);
 					}else{
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script3; ?>","US English Female"); }, 1000);	
 						map.setCenter(Parking_Lot_d);
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);
 					}
 				}
 			}
@@ -252,15 +267,24 @@ var y;
 					audio.play();
 					setTimeout(function(){ responsiveVoice.speak("<?php print $script; ?>","US English Female"); }, 1000);
 					map.setCenter(Parking_Lot_F);
+					setTimeout(function(){
+					   window.location.reload(1);
+					}, 10000);
 				}else{
 					if(dist1 < dist3){
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script; ?>","US English Female"); }, 1000);
-						map.setCenter(Parking_Lot_F);						
+						map.setCenter(Parking_Lot_F);	
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);						
 					}else{
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script3; ?>","US English Female"); }, 1000);
 						map.setCenter(PParking_Lot_d);
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);
 					}
 				}
 			}else{
@@ -269,10 +293,16 @@ var y;
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script; ?>","US English Female"); }, 1000);	
 						map.setCenter(Parking_Lot_F);
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);
 					}else{
 						audio.play();
 						setTimeout(function(){ responsiveVoice.speak("<?php print $script2; ?>","US English Female"); }, 1000);
 						map.setCenter(Parking_Lot_7);
+						setTimeout(function(){
+						   window.location.reload(1);
+						}, 10000);
 					}
 				}else{
 					if(dist1 < dist2){
@@ -280,20 +310,33 @@ var y;
 							audio.play();
 							setTimeout(function(){ responsiveVoice.speak("<?php print $script; ?>","US English Female"); }, 1000);	
 							map.setCenter(Parking_Lot_F);
+							setTimeout(function(){
+							   window.location.reload(1);
+							}, 10000);
 						}else{
 							audio.play();
 							setTimeout(function(){ responsiveVoice.speak("<?php print $script3; ?>","US English Female"); }, 1000);	
 							map.setCenter(PParking_Lot_d);
+							setTimeout(function(){
+							   window.location.reload(1);
+							}, 10000);
+							
 						}
 					}else {
 						if(dist2 < dist3){
 							audio.play();
 							setTimeout(function(){ responsiveVoice.speak("<?php print $script2; ?>","US English Female"); }, 1000);	
 							map.setCenter(Parking_Lot_7);
+							setTimeout(function(){
+							   window.location.reload(1);
+							}, 10000);
 						}else{
 							audio.play();
 							setTimeout(function(){ responsiveVoice.speak("<?php print $script3; ?>","US English Female"); }, 1000);	
 							map.setCenter(PParking_Lot_d);
+							setTimeout(function(){
+							   window.location.reload(1);
+							}, 10000);
 						}
 					}
 				}
