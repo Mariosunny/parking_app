@@ -70,7 +70,7 @@ if($ratios[2]==100){
 <input type="hidden" id="hidden2" value="<?php echo $ratios[2]; ?>" />
 <!-- below is the text seen on screen -->
 <div style="color:black;" >Press the green button and say: "<strong>Find me a spot</strong>", and we'll fetch the spot closest to you!</br>
-Click a blue (<img src="images/mini.png" style="width:24px;" />) or red (<img src="images/mini_red.png" style="width:24px;" />) highlighted area and we'll tell you how many spots are available in that lot.</div>
+Click a blue (<img src="images/mini.png" style="width:24px;" />), red (<img src="images/mini_red.png" style="width:24px;" />), or yellow (<img src="images/mini_yellow.png" style="width:24px;" />) highlighted area and we'll tell you how full that lot is.</div>
 <!-- below is the html <div> for the google map. -->
 <div class="main_body" >
 
